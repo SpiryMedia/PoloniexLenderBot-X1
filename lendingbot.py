@@ -8,7 +8,6 @@ from httplib import BadStatusLine
 from urllib2 import URLError
 
 from decimal import Decimal
-from termcolor import colored
 from modules.Logger import Logger
 from modules.Poloniex import Poloniex, PoloniexApiError
 import modules.Configuration as Config
@@ -58,8 +57,8 @@ else:
 Lending.init(Config, api, log, Data, MaxToLend, dry_run, analysis, notify_conf)
 
 
-print colored ('SpiryɃTC Cash Machine STARTED', 'green')
-print colored ('Analyzing market data........', 'green')
+print '\033[1;42mSpiryɃTC Cash Machine STARTED\033[1;m'
+print '\033[1;48mAquiring Market Data.........\033[1;m'
 # Configure web server
 
 web_server_enabled = Config.getboolean('BOT', 'startWebServer')
@@ -118,5 +117,5 @@ except KeyboardInterrupt:
     if web_server_enabled:
         WebServer.stop_web_server()
     log.log('bye')
-    print 'bye'
+    print '\033[1;31mɃuh-Ƀye - Cash Engine Stopped\033[1;m'
     os._exit(0)  # Ad-hoc solution in place of 'exit(0)' TODO: Find out why non-daemon thread(s) are hanging on exit
