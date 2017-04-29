@@ -59,7 +59,7 @@ def start_web_server():
         serving_msg = "http://{0}:{1}/lendingbot.html".format(hosts[0], port)
         for host in hosts[1:]:
             serving_msg += ", http://{0}:{1}/lendingbot.html".format(host, port)
-        print 'Started WebServer, lendingbot status available at {0}'.format(serving_msg)
+        print '\033[1;32mSystem Operational. Info Operation Center = \033[1;m {0}'.format(serving_msg)
         server.serve_forever()
     except Exception as ex:
         ex.message = ex.message if ex.message else str(ex)
