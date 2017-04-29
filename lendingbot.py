@@ -8,7 +8,7 @@ from httplib import BadStatusLine
 from urllib2 import URLError
 
 from decimal import Decimal
-
+from termcolor import colored
 from modules.Logger import Logger
 from modules.Poloniex import Poloniex, PoloniexApiError
 import modules.Configuration as Config
@@ -58,7 +58,8 @@ else:
 Lending.init(Config, api, log, Data, MaxToLend, dry_run, analysis, notify_conf)
 
 
-print 'Welcome to Poloniex Lending Bot'
+print colored ('SpiryɃTC Cash Machine STARTED', 'green')
+print colored ('Analyzing market data........', 'green')
 # Configure web server
 
 web_server_enabled = Config.getboolean('BOT', 'startWebServer')
